@@ -8,6 +8,7 @@ CMD ["/sbin/my_init"]
 RUN mkdir -p /etc/my_init.d
 
 COPY scripts/* /etc/my_init.d/
+RUN chmod +x /etc/my_init.d/*
 
 ENV LISTENING_PORT="8000" \
 LISTENING_ADDRESS="0.0.0.0" \
