@@ -1,13 +1,9 @@
 FROM debian:stable-slim
 
-ARG VERSION="2.17.0"
-ARG DOWNLOADURL="https://omnidb.org/dist/2.17.0/omnidb-server_2.17.0-debian-amd64.deb"
-
 RUN  apt-get update \
   && apt-get install -y wget \
-  && if [ ! -e '/bin/systemctl' ]; then ln -s /bin/echo /bin/systemctl; fi \
   && cd /tmp/ \
-  && wget -q https://github.com/OmniDB/OmniDB/releases/download/2.17.0/omnidb-app_2.17.0-debian-amd64.deb \
+  && wget -q https://github.com/OmniDB/OmniDB/releases/download/2.17.0/omnidb-server_2.17.0-debian-amd64.deb \
   && dpkg -i omnidb-app_2.17.0-debian-amd64.deb \
   && mkdir -p /data \
   && rm -rf /var/lib/apt/lists/* \
