@@ -3,7 +3,7 @@ export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 apt-get -qq -y update && \
 apt-get install -y -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" software-properties-common && \
-add-apt-repository -y -q ppa:deadsnakes/ppa && \
+add-apt-repository -y ppa:deadsnakes/ppa && \
 apt-get -qq -y update && \
 apt-get install -qq -y --no-install-recommends -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" \
   autoconf \
@@ -16,6 +16,7 @@ apt-get install -qq -y --no-install-recommends -o "Dpkg::Options::=--force-confd
   file \
   g++ \
   gcc \
+  git \
   gnupg \
   idle-python3.9 \
   imagemagick \
