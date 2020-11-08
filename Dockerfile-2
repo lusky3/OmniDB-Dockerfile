@@ -8,7 +8,8 @@ RUN  apt-get update \
   && dpkg -i omnidb-server_2.17.0-debian-amd64.deb \
   && mkdir -p /data \
   && rm -rf /var/lib/apt/lists/* \
-  && rm -rf /tmp/*
+  && rm -rf /tmp/* \
+  && ln -s /bin/echo /bin/systemctl
 
 EXPOSE 8000
 EXPOSE 25482
