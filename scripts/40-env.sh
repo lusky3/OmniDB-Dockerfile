@@ -3,7 +3,10 @@ if [[ -f /omnidb-server/config.lock ]]; then
   exit 0
 else
   cd /omnidb-server
-  if [[ $LISTENING_ADDRESS != "8000" ]]; then
+  if [[ $LISTENING_PORT != "8000" ]]; then
+    sed -i "s/LISTENING_PORT       = .*$/LISTENING_PORT       = '${LISTENING_ADDRESS}'/g" config.py
+  fi
+  if [[ $LISTENING_ADDRESS != "0.0.0.0" ]]; then
     sed -i "s/LISTENING_ADDRESS    =  .*$/LISTENING_ADDRESS    = '${LISTENING_ADDRESS}'/g" config.py
   fi
   if [[ $IS_SSL == "true" ]] || [[ $IS_SSL == "True" ]] || [[ $IS_SSL == "Yes" ]] || [[ $IS_SSL == "yes" ]]; then
