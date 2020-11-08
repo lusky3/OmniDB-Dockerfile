@@ -4,13 +4,12 @@ RUN  apt-get update \
   && apt-get dist-upgrade -y \
   && apt-get install -y wget \
   && cd /tmp/ \
+  && ln -s /bin/echo /bin/systemctl \
   && wget -q https://github.com/OmniDB/OmniDB/releases/download/2.17.0/omnidb-server_2.17.0-debian-amd64.deb \
   && dpkg -i omnidb-server_2.17.0-debian-amd64.deb \
   && mkdir -p /data \
   && rm -rf /var/lib/apt/lists/* \
-  && rm -rf /tmp/* \
-  && ln -s /bin/echo /bin/systemctl
-
+  && rm -rf /tmp/* 
 EXPOSE 8000
 EXPOSE 25482
 
