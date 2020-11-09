@@ -1,4 +1,8 @@
 #!/bin/bash
-git clone -q https://github.com/OmniDB/OmniDB.git /opt/omnidb && \
+echo -e "Updating OmniDB repository..."
 cd /opt/omnidb && \
-pip3 install -r requirements.txt
+git fetch origin master --quiet && \
+git reset --hard origin/master --quiet && \
+git clean -fd --quiet &&
+git pull --quiet
+exit 0
