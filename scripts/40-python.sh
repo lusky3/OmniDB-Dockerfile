@@ -25,14 +25,15 @@ fi
 if [[ -f /usr/bin/pip ]]; then
   rm /usr/bin/pip
 fi
-ln -s idle-python3.9 /usr/bin/idle &&	\
-ln -s idle-python3.9 /usr/bin/idle3 && \
+ln -s /usr/bin/idle-python3.9 /usr/bin/idle &&	\
+ln -s /usr/bin/idle-python3.9 /usr/bin/idle3 && \
 ln -s /usr/bin/pydoc3.9 /usr/bin/pydoc && \
 ln -s /usr/bin/python3.9 /usr/bin/python && \
 ln -s /usr/bin/python3.9 /usr/bin/python3
 echo -e "Getting latest pip..." && \
 curl -q https://bootstrap.pypa.io/get-pip.py | python && \
 echo -e "Updating requirements..." && \
+( cd /opt/omnidb/ && \
 pip install -U setuptools wheel && \
-pip install -U -r requirements.txt
+pip install -U -r requirements.txt )
 exit 0
