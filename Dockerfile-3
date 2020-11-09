@@ -20,4 +20,4 @@ CSRF_COOKIE_SECURE=""
 
 EXPOSE 8000
 
-VOLUME ["/omnidb-server"]
+VOLUME ["/omnidb"]
