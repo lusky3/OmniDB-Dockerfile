@@ -9,6 +9,7 @@ CMD ["/sbin/my_init"]
 RUN export DEBIAN_FRONTEND=noninteractive && \
   mkdir -p /etc/my_init.d && \
   apt-get -qq -y update && \
+  apt-get dist-upgrade -y -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" && \
   apt-get install -y -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" software-properties-common && \
   add-apt-repository -y ppa:deadsnakes/ppa && \
   apt-get -qq -y update && \
