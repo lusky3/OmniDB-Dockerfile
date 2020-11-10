@@ -16,11 +16,10 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     unzip \
     wget  && \
   apt-get -y -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" autoremove && \
+  ln -s /bin/echo /bin/systemctl && \
   cd /tmp && \
   wget https://github.com/OmniDB/OmniDB/releases/download/${VERSION}/omnidb-server_${VERSION}_linux_x86_64.deb && \
   dpkg -i omnidb-server_${VERSION}_linux_x86_64.deb && \
-  ln -s /bin/echo /bin/systemctl && \
-  ln -s /opt/omnidb-server /omnidb-server && \
   unset DEBIAN_FRONTEND && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
