@@ -7,6 +7,13 @@ else
   echo -e "Modifying config.conf with ENV values..."
   echo -e "(Tip: Add empty file config.lock to /omnidb-server to prevent overwriting settings)"
   cd /omnidb-server
+  if [[ -f /omnidb-server/config.conf.last ]]; then
+    rm /omnidb-server/config.conf.last
+  fi
+  if [[ -f /omnidb-server/config.conf ]]; then
+    mv /omnidb-server/config.conf /omnidb-server/config.conf.last
+  fi
+  wget -q https://github.com/ChaosZero112/OmniDB-Dockerfile/raw/2.17.0/conf/config.conf
   if [[ ! -z $LISTENING_PORT ]]; then
     sed -i "s/^listening_port[[:blank:]]*=.*$/listening_port       = ${LISTENING_PORT}/g" config.conf
   fi
