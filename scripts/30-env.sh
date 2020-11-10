@@ -21,7 +21,7 @@ else
     sed -i "s/^websocket_port[[:blank:]]*=.*$/websocket_port       = ${WEBSOCKET_PORT}/g" omnidb.conf
   fi
   if [[ ! -z $LISTENING_ADDRESS ]]; then
-    sed -i "s/^listening_address[[:blank:]]*= .*$/listening_address    = '${LISTENING_ADDRESS}'/g" omnidb.conf
+    sed -i "s/^listening_address[[:blank:]]*= .*$/listening_address    = ${LISTENING_ADDRESS}/g" omnidb.conf
   fi
   if [[ $IS_SSL == "true" ]] || [[ $IS_SSL == "True" ]] || [[ $IS_SSL == "Yes" ]] || [[ $IS_SSL == "yes" ]]; then
     sed -i "s/^is_ssl[[:blank:]]*=.*$/is_ssl               = True/g" omnidb.conf
