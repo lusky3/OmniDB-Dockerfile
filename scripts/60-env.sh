@@ -8,7 +8,7 @@ else
   echo -e "(Tip: Add empty file config.lock to /omnidb-server to prevent overwriting settings)"
   cd /omnidb-server
   if [[ ! -z $LISTENING_PORT ]]; then
-    sed -i "s/^LISTENING_PORT[[:blank:]]*=.*$/LISTENING_PORT       = ${LISTENING_ADDRESS}/g" config.py
+    sed -i "s/^LISTENING_PORT[[:blank:]]*=.*$/LISTENING_PORT       = ${LISTENING_PORT}/g" config.py
   fi
   if [[ ! -z $LISTENING_ADDRESS ]]; then
     sed -i "s/^LISTENING_ADDRESS[[:blank:]]*=  .*$/LISTENING_ADDRESS    = '${LISTENING_ADDRESS}'/g" config.py
