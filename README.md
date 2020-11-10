@@ -9,8 +9,9 @@ This repo will contain 2.17.x stable and a self-building 3.x bleeding edge. 2.17
 This is a very niche build created for my own use. I'd generally recommend using the [OmniDB version](https://hub.docker.com/r/omnidbteam/omnidb) over this one.
 
 ### Tags
-`2`, `2.17.0`, `stable`  
-`3`, `latest`
+**Version 2.x:** `2`, `2.17.0`, `stable`  
+**Version 3.x:** `3`, `3.0.2b`,`beta`  
+**Bleeding Edge:** `edge`,`latest`
 
 ### Recommended Settings
 ```
