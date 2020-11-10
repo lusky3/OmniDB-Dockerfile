@@ -4,9 +4,9 @@
 ### Why?
 OmniDB maintains their own [dockerfile](https://hub.docker.com/r/omnidbteam/omnidb), but only for 3b releases _(at the time of writing)_ and the only [recently updated](https://github.com/taivokasper/docker-omnidb) _(again, at time of writing)_ only has 2.17.  
   
-This repo will contain 2.17.x stable and a self-building 3.x bleeding edge. 2.17.0 is pre-build docker hub image whereas 3.x is built on-the-fly using the latest [omnidb:master](https://github.com/OmniDB/OmniDB) pull.
+This repo will contain 2.17.x stable, 3.x beta, and a self-building 3.x bleeding edge. `2.17.0` and `3.x` are pre-build docker hub images whereas `latest` (`edge`) is built on-the-fly using the latest [omnidb:master](https://github.com/OmniDB/OmniDB) pull.
   
-This is a very niche build created for my own use. I'd generally recommend using the [OmniDB version](https://hub.docker.com/r/omnidbteam/omnidb) over this one.
+This is a fairly niche build created for my own use. I'd generally recommend using the [OmniDB version](https://hub.docker.com/r/omnidbteam/omnidb) over this one.
 
 ### Tags
 **Version 2.x:** `2`, `2.17.0`, `stable`  
@@ -37,7 +37,7 @@ Then use a reverse proxy like [Traefik](https://github.com/traefik/traefik) or [
 | SSL_KEY_FILE | unset | Path eg. `/omnidb-server/cert.key` | `2.x`, `3.x` |
 | SESSION_COOKIE_SECURE | False (unset) | `True` or `False` | `3.x` |
 | CSRF_COOKIE_SECURE | False (unset) | `True` or `False` | `3.x` |
-| CUSTOM_PATH | unset | URL Subfolder eg. `/omnidb` | `2.x`, `3.x` |
+| CUSTOM_PATH | unset | URL Subfolder eg. `/omnidb` | `3.x` |
 | CSRF_TRUSTED_ORIGINS | unset | String eg. `origin1,origin2,origin3` | `2.x` |
 
   
