@@ -11,7 +11,7 @@ else
     sed -i "s/^LISTENING_PORT[[:blank:]]*=.*$/LISTENING_PORT       = ${LISTENING_PORT}/g" config.py
   fi
   if [[ ! -z $LISTENING_ADDRESS ]]; then
-    sed -i "s/^LISTENING_ADDRESS[[:blank:]]*=  .*$/LISTENING_ADDRESS    = '${LISTENING_ADDRESS}'/g" config.py
+    sed -i "s/^LISTENING_ADDRESS[[:blank:]]*= .*$/LISTENING_ADDRESS    = '${LISTENING_ADDRESS}'/g" config.py
   fi
   if [[ $IS_SSL == "true" ]] || [[ $IS_SSL == "True" ]] || [[ $IS_SSL == "Yes" ]] || [[ $IS_SSL == "yes" ]]; then
     sed -i "s/^IS_SSL[[:blank:]]*=.*$/IS_SSL                 = True/g" config.py
