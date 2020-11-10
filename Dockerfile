@@ -1,6 +1,7 @@
 # Use phusion/baseimage as base image.
 FROM phusion/baseimage:bionic-1.0.0
 
+ARG VERSION=3.0.2b
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
@@ -16,8 +17,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     wget  && \
   apt-get -y -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" autoremove && \
   cd /tmp && \
-  wget https://github.com/OmniDB/OmniDB/releases/download/3.0.2b/omnidb-server_3.0.2b_linux_x86_64.deb && \
-  dpkg -i omnidb-server_3.0.2b_linux_x86_64.deb && \
+  wget https://github.com/OmniDB/OmniDB/releases/download/${VERSION}/omnidb-server_${VERSION}_linux_x86_64.deb && \
+  dpkg -i omnidb-server_${VERSION}_linux_x86_64.deb && \
   ln -s /bin/echo /bin/systemctl && \
   ln -s /opt/omnidb-server /omnidb-server
   unset DEBIAN_FRONTEND && \
