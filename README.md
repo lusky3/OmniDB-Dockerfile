@@ -27,32 +27,27 @@ Then use a reverse proxy like [Traefik](https://github.com/traefik/traefik) or [
 
 ### ENV
 
-| Environment Variable | Default | Options |
-| ---- | ----- | ---- |
-| LISTENING_PORT | 8000  | `0 - 65535` |
-| LISTENING_ADDRESS | 0.0.0.0 | `x.x.x.x` or `example.com` |
-| IS_SSL | False | `True` or `False` |
-| SSL_CERTIFICATE_FILE | unset | Path eg. `/omnidb-server/cert.pem` |
-| SSL_KEY_FILE | unset | Path eg. `/omnidb-server/cert.key` |
-| SESSION_COOKIE_SECURE | False (unset) | `True` or `False` |
-| CSRF_COOKIE_SECURE | False (unset) | `True` or `False` |  
+| Environment Variable | Default | Options | Applicable Version |  
+| ---- | ----- | ---- | ----- |
+| LISTENING_PORT | 8000 | `0 - 65535` | `2.x`, `3.x` |
+| WEBSOCKET_PORT | 25482 | `0 - 65535` | `2.x` |
+| LISTENING_ADDRESS | 0.0.0.0 | `x.x.x.x` or `example.com` | `2.x`, `3.x` |  
+| IS_SSL | False | `True` or `False` | `2.x`, `3.x` |  
+| SSL_CERTIFICATE_FILE | unset | Path eg. `/omnidb-server/cert.pem` | `2.x`, `3.x` |
+| SSL_KEY_FILE | unset | Path eg. `/omnidb-server/cert.key` | `2.x`, `3.x` |
+| SESSION_COOKIE_SECURE | False (unset) | `True` or `False` | `3.x` |
+| CSRF_COOKIE_SECURE | False (unset) | `True` or `False` | `3.x` |
+| CUSTOM_PATH | unset | URL Subfolder eg. `/omnidb` | `2.x`, `3.x` |
+| CSRF_TRUSTED_ORIGINS | unset | String eg. `origin1,origin2,origin3` | `2.x` |
+
   
-**Tip:** For 3.x, you can create a `config.lock` file in `/omnidb-server` to prevent your configuration from being overwritten by these variables.
+If you change the HTTP or Websocket ports from the defaults (8000,25482) be sure to change the docker exposed port.
+  
+**Tip:** You can create a `config.lock` file in `/omnidb-server` to prevent your configuration from being overwritten by these variables.
 
 ### Volumes
 `/omnidb-server` is mapped by default and stores the config/database/etc.  
 Use something like `-v /my/path:/omnidb-server` to expose the dir to your host, if desired.
-
-### Ports
-| Port | Usage |
-| ---- | ----- |
-| 8000 | HTTP  |
-| 25482 | Websocket* |  
-  
-_\* Only applicable for 2.17.0_  
-  
-If you change the HTTP port from the default (8000) make sure to change the docker exposed port.
-
 
 ### Login
 Default login username: "admin" and password "admin".
