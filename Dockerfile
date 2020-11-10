@@ -22,6 +22,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   cd /tmp && \
   wget https://github.com/OmniDB/OmniDB/releases/download/${VERSION}/omnidb-server_${VERSION}-debian-amd64.deb && \
   dpkg -i omnidb-server_${VERSION}-debian-amd64.deb && \
+  mkdir -p /omnidb-server && \
   unset DEBIAN_FRONTEND && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -31,15 +32,15 @@ RUN chmod +x /etc/my_init.d/*
 
 # Setup ennvironment variables
 ENV LISTENING_PORT="8000" \
+WEBSOCKET_PORT="25482" \
 LISTENING_ADDRESS="0.0.0.0" \
 IS_SSL="" \
 SSL_CERTIFICATE_FILE="" \
 SSL_KEY_FILE="" \
-SESSION_COOKIE_SECURE="" \
-CSRF_COOKIE_SECURE=""
+CSRF_TRUSTED_ORIGINS=""
 
-# Expose the (default) port
-EXPOSE 8000
+# Expose the (default) ports
+EXPOSE 8000 25482
 
 # Persistant storage
 VOLUME ["/omnidb-server"]
