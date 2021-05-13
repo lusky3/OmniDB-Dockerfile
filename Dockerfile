@@ -1,7 +1,7 @@
 # Use phusion/baseimage as base image.
 FROM phusion/baseimage:bionic-1.0.0
 
-ARG VERSION=3.0.2b
+ARG VERSION=3.0.3b
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
