@@ -10,7 +10,7 @@ This is a fairly niche build created for my own use. I'd generally recommend usi
 
 ### Tags
 **Version 2.x:** `2`, `2.17.0`, `stable`  
-**Version 3.x:** `3`, `3.0.2b`,`beta`  
+**Version 3.x:** `3`, `3.0.2b`, `3.0.3b`,`beta`  
 **Bleeding Edge:** `edge`,`latest`
 
 ### Recommended Settings
